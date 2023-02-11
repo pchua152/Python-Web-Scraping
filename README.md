@@ -18,3 +18,7 @@ to install, run pip install requests beautifulsoup4 discord.py
 to run the program, python discordbot.py will run the bot, however you need to provide your own token for it to work
 
 the scraper itself is a standalone program which can also be run through python scraper.py to run a demo which looks for one attack, one Pokemon, one item, and one ability as an example
+
+# Known Issues
+1. Pokemon with multiple forms (Wooper, Tauros, Slowpoke, etc.) only return the first form introduced with no way to access the other forms
+2. Attack effects are currently a little buggy because of the way Pokemon db structures the website, sometimes the same info that is hidden for one attack is displayed on another among other issues
