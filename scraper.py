@@ -30,11 +30,14 @@ def getMoveData(attack):
                 for row in table.tbody.find_all('tr'):
                         column = row.find_all('th')
                         info = row.find_all('td')
-                        data += column[0].text.strip() + ": " + info[0].text.strip() + " \n";
+                        if column[0].text.strip() not in ["Introduced"]:
+                                data += column[0].text.strip() + ": " + info[0].text.strip() + " \n";
                 
                 #Commenting this out for now cause its a little buggy
                 effect = soup.find('h2',{"id": "move-effects"}).text.strip();
                 move = soup.find('p').text.strip()
+                
+                
                 data += effect + ": " +  move
                 return data
         except:
@@ -118,8 +121,8 @@ def getItemData(item):
 
 def main():
         #print(getItemData("Booster Energy"))
-        #print(getMoveData("Headlong Rush"))
-        print(getAbilityData("Own Tempo"))
+        print(getMoveData("Headlong Rush"))
+        #print(getAbilityData("Own Tempo"))
         #print(getPokemonData("Quagsire"))
 
 
