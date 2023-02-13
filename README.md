@@ -15,9 +15,9 @@ The purpose of the project was to allow me to have an easier way to look up data
 ![FopM8YzWIAISEdH](https://user-images.githubusercontent.com/115382866/218520610-f3d7de7c-62ef-4105-b77a-406204042ae8.png)
 
 # Requirements
-To run this program, you first need to install discord.py as well as requests and bs4
+To run this program, you first need to install discord.py as well as requests, lxml and bs4
 
-to install, run pip install requests beautifulsoup4 discord.py
+to install, run pip install requests beautifulsoup4 discord.py lxml
 
 to run the program, python discordbot.py will run the bot, however you need to provide your own token for it to work
 
@@ -26,3 +26,4 @@ the scraper itself is a standalone program which can also be run through python 
 # Known Issues
 1. Pokemon with multiple forms (Wooper, Tauros, Slowpoke, etc.) only return the first form introduced with no way to access the other forms
 2. Using ! to start a command probably isnt the greatest way to use this, currently working on a way to get / commands to work for ease of use along with detailed descriptions
+3. Eruption and Water Spout cannot display the damage calculation formula (due to the webpage using a code tag to display)
