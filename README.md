@@ -25,5 +25,4 @@ the scraper itself is a standalone program which can also be run through python 
 
 # Known Issues
 1. Pokemon with multiple forms (Wooper, Tauros, Slowpoke, etc.) only return the first form introduced with no way to access the other forms
-2. Attack effects are currently a little buggy because of the way Pokemon db structures the website, sometimes the same info that is hidden for one attack is displayed on another among other issues
-3. Using ! to start a command probably isnt the greatest way to use this, currently working on a way to get / commands to work for ease of use along with detailed descriptions
+2. Using ! to start a command probably isnt the greatest way to use this, currently working on a way to get / commands to work for ease of use along with detailed descriptions
