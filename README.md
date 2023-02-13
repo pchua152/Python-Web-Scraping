@@ -8,7 +8,11 @@ The purpose of the project was to allow me to have an easier way to look up data
 
 # Data is returned in the following formats
 
-## Insert pictures here to show examples
+
+![FopM4hwWcAAtQn5](https://user-images.githubusercontent.com/115382866/218520550-90e8a3df-8457-417b-9f0d-3c5ad4eb5dea.png)
+![FopM51qWcAECYxM](https://user-images.githubusercontent.com/115382866/218520592-83e63a7d-3378-4132-a709-9d15dbbb2cef.png)
+![FopM7JlX0AEBqnO](https://user-images.githubusercontent.com/115382866/218520604-5b62e7aa-89c8-445b-b6da-bc000bf04548.png)
+![FopM8YzWIAISEdH](https://user-images.githubusercontent.com/115382866/218520610-f3d7de7c-62ef-4105-b77a-406204042ae8.png)
 
 # Requirements
 To run this program, you first need to install discord.py as well as requests and bs4
