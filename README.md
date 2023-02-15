@@ -31,4 +31,4 @@ the scraper itself is a standalone program which can also be run through python 
 
 # Known Issues
 1. Pokemon with multiple forms (Wooper, Tauros, Slowpoke, etc.) only return the first form introduced with no way to access the other forms
-2. Eruption and Water Spout cannot display the damage calculation formula (due to the webpage using a code tag to display)
+2. Moves that change power based off health (Wring Out, Water Spout, etc) do not display the caluclation formula due to the code tag
