@@ -125,10 +125,10 @@ def getItemData(item):
                 return "No data found"
 
 def main():
-        #print(getItemData("Booster Energy"))
+        print(getItemData("Booster Energy"))
         print(getMoveData("Headlong Rush"))
-        #print(getAbilityData("Own Tempo"))
-        #print(getPokemonData("Quagsire"))
+        print(getAbilityData("Own Tempo"))
+        print(getPokemonData("Quagsire"))
 
 
 if __name__ == "__main__":
