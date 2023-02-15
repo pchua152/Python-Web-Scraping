@@ -7,10 +7,15 @@ abilityUrl = "https://pokemondb.net/ability/"
 itemUrl = "https://pokemondb.net/item/"
 
 def textCleanUp(text):
+        #This is just split up line by line so I can see easier if I'm missing something to replace
         text = text.replace(' ','-')
         text = text.replace("'",'')
         text = text.replace(":",'')
         text = text.replace(".",'')
+        
+        #Mr. Mime -> mr-mime
+        #Mime Jr. -> mime-jr
+        #Type: Null -> type-null
         text = text.lower()
         return text
         
