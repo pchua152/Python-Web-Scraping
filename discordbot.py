@@ -1,5 +1,6 @@
 import os
 import discord
+from random import randrange
 from discord import app_commands
 
 from scraper import *
@@ -36,6 +37,10 @@ async def PokemonData(phrase: discord.Interaction, pokemon:str):
 @app_commands.describe(item = "item to learn information about")
 async def PokemonData(phrase: discord.Interaction, item:str):    
     await phrase.response.send_message(getItemData(item))
+
+@tree.command(name = "code", description= "Generate link code to use when playing vs others",guild=discord.Object(id=discord_id))
+async def randomgenerate(interaction: discord.Interaction):
+    await interaction.response.send_message(randrange(99999999))
     
 
  
