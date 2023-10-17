@@ -4,9 +4,7 @@
 This project is a simple web scraper that browses through https://pokemondb.net/ to retrieve data on Pokemon attacks, items, abilities, or Pokemon. The web scraper was integrated with a Discord bot which allows users to search for the information on their own in a server using commands.
 
 # Purpose
-The main purpose of the project was to allow me to have an easier way to look up data regarding certain Pokemon strategies while I practice for competitive Pokemon events.
-
-I am also planning on using this bot as an all purpose bot to help with other things such as assisting me in remmebering Japanese characters
+This bot is a personal use bot focused mainly on Pokemon. It currently is used to assist when preparing for Pokemon tournaments through looking up information on attacks and Pokemon. Other uses not compeititve related, but still Pokemon related, include helping create Link Codes to help make it easier to connect with other players in online tours and a way to help me practice writing Japanese characters through Pokemon names/attacks
 
 # Examples of bot usage
 
