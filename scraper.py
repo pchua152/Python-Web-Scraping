@@ -1,10 +1,13 @@
 import requests
 import bs4
+from random import randrange
+
 
 rootUrl = "https://pokemondb.net/move/"
 monUrl = "https://pokemondb.net/pokedex/"
 abilityUrl = "https://pokemondb.net/ability/"
 itemUrl = "https://pokemondb.net/item/"
+movesUrl = "https://bulbapedia.bulbagarden.net/wiki/List_of_moves_in_other_languages"
 
 def textCleanUp(text):
         #This is just split up line by line so I can see easier if I'm missing something to replace
@@ -124,15 +127,46 @@ def getItemData(item):
         except:
                 return "No data found"
 
+def getAData(number):
+        try:
+                htmldata = requests.get(movesUrl);
+                soup = bs4.BeautifulSoup(htmldata.text,"lxml")
+                table = soup.find_all('table')
+                use = table[1]
+                #Found table, need to find an optimized way to find the matching number
+                
+                return use
+        except:
+                return "No data found"
+
+def genCode():
+        result = randrange(99999999)
+        length = len(str(result))
+        if (length > 4):
+                print(result)
+                test =  str(result)
+                testslice = slice(4)
+                
+                rest = test[4:]
+                """Put a space after 4 digits
+                ex 12345678 becomes 1234 5678"""
+                list = [test[testslice], rest]
+                return " ".join(list)
+                
+                
+        
+        return result
+        
+        
 def main():
-        print(getItemData("Booster Energy"))
-        print(getMoveData("Headlong Rush"))
-        print(getAbilityData("Own Tempo"))
-        print(getPokemonData("Quagsire"))
+        print(genCode())
 
 
 if __name__ == "__main__":
     main()
+    
+    
+    
                 
         
         

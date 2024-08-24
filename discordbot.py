@@ -40,7 +40,11 @@ async def PokemonData(phrase: discord.Interaction, item:str):
 
 @tree.command(name = "code", description= "Generate link code to use when playing vs others",guild=discord.Object(id=discord_id))
 async def randomgenerate(interaction: discord.Interaction):
-    await interaction.response.send_message(randrange(99999999))
+    await interaction.response.send_message(genCode())
+    
+"""@tree.command(name = "jpn_pr", description= "Generate random attack numbers",guild=discord.Object(id=discord_id))
+async def randomgenerate(interaction: discord.Interaction, amount:int):
+    await interaction.response.send_message(randrange(99999999))"""
     
 
  
