@@ -19,13 +19,13 @@ This bot is a personal use bot focused mainly on Pokemon. It currently is used t
 # Requirements
 To run this program, you first need to install discord.py as well as requests, lxml and bs4
 
-to install, run pip install requests beautifulsoup4 discord.py lxml
+To install, run pip install requests beautifulsoup4 discord.py lxml
 
-to run the program, python discordbot.py will run the bot, however you need to provide your own token for it to work
+To run the program, python discordbot.py will run the bot, however you need to provide your own token for it to work
 
-to run the discord bot in your own server, replace the parameters TOKEN and discord_id with your own. Instructions can be found [here for the token](https://www.writebots.com/discord-bot-token/#:~:text=at%20ALL%20COSTS!-,What%20is%20a%20Discord%20Bot%20Token%3F,in%20turn%20controls%20bot%20actions.) and [here for the discord_id](https://poshbot.readthedocs.io/en/latest/guides/backends/setup-discord-backend/#find-your-guild-id-server-id)
+To run the discord bot in your own server, replace the parameters TOKEN and discord_id with your own. Instructions can be found [here for the token](https://www.writebots.com/discord-bot-token/#:~:text=at%20ALL%20COSTS!-,What%20is%20a%20Discord%20Bot%20Token%3F,in%20turn%20controls%20bot%20actions.) and [here for the discord_id](https://poshbot.readthedocs.io/en/latest/guides/backends/setup-discord-backend/#find-your-guild-id-server-id)
 
-the scraper itself is a standalone program which can also be run through python scraper.py to run a demo which looks for one attack, one Pokemon, one item, and one ability as an example
+The scraper itself is a standalone program which can also be run through python scraper.py to run a demo which looks for one attack, one Pokemon, one item, and one ability as an example
 
 
 
