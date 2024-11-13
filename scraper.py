@@ -1,13 +1,41 @@
 import requests
 import bs4
 from random import randrange
+import json
 
 
 rootUrl = "https://pokemondb.net/move/"
-monUrl = "https://pokemondb.net/pokedex/"
 abilityUrl = "https://pokemondb.net/ability/"
 itemUrl = "https://pokemondb.net/item/"
-movesUrl = "https://bulbapedia.bulbagarden.net/wiki/List_of_moves_in_other_languages"
+movesUrl = "https://play.pokemonshowdown.com/data/moves.json"
+
+ShowdownUrl = "https://play.pokemonshowdown.com/data/pokedex.json"
+
+def getPokemonData(text):
+        #Alternate forms are written like this: ninetalesalola, typenull, mimejr
+        htmlData = requests.get(ShowdownUrl)
+        monjson = json.loads(htmlData.content.decode('utf-8'))
+        mon = text.lower()
+        mon_info = ''
+        
+        if mon in monjson:
+               info = monjson[mon]
+               ability_list = []
+               mon_info += "Displaying data for: " + info['name'] + "\n"
+               mon_info += "Type: " + str(info['types']) + "\n"
+               # The data source has it as 0: Ability name ,just removing the number since its not relevant
+               for ability in info['abilities']:
+                       ability_list.append(info['abilities'][ability])
+                
+               mon_info += "Abilities: " + str(ability_list) + "\n"
+               
+               mon_info += "Base Stats: " + str(info['baseStats'])
+               return mon_info
+        else:
+             return "Pokemon not found, please check your spelling and try again"  
+       
+                       
+               
 
 def textCleanUp(text):
         #This is just split up line by line so I can see easier if I'm missing something to replace
@@ -24,35 +52,27 @@ def textCleanUp(text):
         
 
 def getMoveData(attack):
-        #Retrieve data
-        data = "" 
-        try:
-                attack = textCleanUp(attack)
-                htmlData = requests.get(rootUrl + attack)
-                soup = bs4.BeautifulSoup(htmlData.text, "lxml")
-                #The website has them so you can search based off attack
-                #Find just the tbale that has the info
-                table = soup.find('table', class_ = "vitals-table");
-                
-                #Print all the data about it
-                for row in table.tbody.find_all('tr'):
-                        column = row.find_all('th')
-                        info = row.find_all('td')
-                        if column[0].text.strip() not in ["Introduced"]:
-                                data += column[0].text.strip() + ": " + info[0].text.strip() + " \n";
-                
-                #Commenting this out for now cause its a little buggy
-                effect = soup.find('h2',{"id": "move-effects"}).text.strip();
-                move = soup.find('p').text.strip()
-                
-                
-                data += effect + ": " +  move
-                return data
-        except:
-                return "No data found"
+        htmldata = requests.get(movesUrl)
+        moveJson = json.loads(htmldata.content.decode('utf-8'))
+        fattack = "".join(attack.split())
+        fattack = fattack.lower()
         
         
+        if fattack in moveJson:
+                info = moveJson[fattack]
+                result = ""
+                result += "Displaying data for: " + attack + "\n"
+                result += "Type: " + str(info['type']) + "\n"
+                result += "Accuracy: " + str(info['accuracy']) + "\n"
+                result += "Category: " + str(info['category']) + "\n"
+                result += "Base Power: " + str(info['basePower']) + "\n"
+                result += "priority: " + str(info['priority']) + "\n"
+                result += "Description: " + info['shortDesc']
+                return result
+        return "No attack found, please try a different attack"
         
+        
+                
        
 def getAbilityData(ability):
         
@@ -65,52 +85,12 @@ def getAbilityData(ability):
                 title = soup.find('h2').text
                 effect = soup.find('p').text
                 
-                
-                
                 data +=  title + ": " + effect
                 return data
        except:
                return "No data found"
                
       
-
-
-def getPokemonData(pokemon):
-        ##What data should be received?
-        data = ""
-        try:
-        ##Type/Height/Weight/Abilites
-        ##Stats
-                pokemon = textCleanUp(pokemon)
-                htmldata = requests.get(monUrl + pokemon);
-                soup = bs4.BeautifulSoup(htmldata.text, "lxml");
-                ##Type/Height/Weight/Abilites
-                table = soup.find('table', class_ = "vitals-table");
-                for row in table.tbody.find_all('tr'):
-                        column = row.find('th')
-                        info = row.find('td')
-                        column_name = column.text.strip();
-                        ##Irrelevant information will not be output
-                        if column_name not in ['National №', 'Species', 'Local №']:
-                                ##Make the abilities better formated when printed
-                                if column_name == "Abilities":
-                                        abilities = []
-                                        for ability in row.find_all('a'):
-                                                abilities.append(ability.text.strip()); 
-                                        
-                                        data += "Abilities: " + str(abilities) + "\n";
-                                else:
-                                        data += column.text.strip() + ": " +  info.text.strip() + "\n"
-                
-                data += "\n \nBase Stats: "
-                table2 = soup.find('div',class_ = "resp-scroll" );
-                for row in table2.tbody.find_all('tr'):
-                        column = row.find('th').text.strip()
-                        bs = row.find('td', class_ = "cell-num").text.strip();
-                        data += column + ": "+ bs + "\n";
-                return data
-        except:
-                return "No data found, if Pokemon intended to search for is Nidoran, type Nidoran-m or Nidoran-f"
         
         
 def getItemData(item):
@@ -127,23 +107,11 @@ def getItemData(item):
         except:
                 return "No data found"
 
-def getAData(number):
-        try:
-                htmldata = requests.get(movesUrl);
-                soup = bs4.BeautifulSoup(htmldata.text,"lxml")
-                table = soup.find_all('table')
-                use = table[1]
-                #Found table, need to find an optimized way to find the matching number
-                
-                return use
-        except:
-                return "No data found"
 
 def genCode():
         result = randrange(99999999)
         length = len(str(result))
         if (length > 4):
-                print(result)
                 test =  str(result)
                 testslice = slice(4)
                 
@@ -159,7 +127,7 @@ def genCode():
         
         
 def main():
-        print(genCode())
+        print(getMoveData('Jet Punch'))
 
 
 if __name__ == "__main__":

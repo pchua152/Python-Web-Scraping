@@ -17,7 +17,7 @@ discord_id = os.getenv('discord_id')
 async def on_ready():
     channelid = os.getenv('channelid')
     await tree.sync()
-    await client.get_channel(int(channelid)).send("Hello, bot online is now")
+    await client.get_channel(int(channelid)).send("Hello, bot is online now")
     
     print(f'{client.user} is now online!')
 
