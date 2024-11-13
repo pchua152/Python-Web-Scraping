@@ -1,7 +1,7 @@
 # Python-Web-Scraping
 
 # About the Project
-This project is a web scraper that browses through https://pokemondb.net/ to retrieve data on Pokemon attacks, items, abilities, or Pokemon. The web scraper was integrated with a Discord bot which allows users to search for the information on their own in a server using commands.
+This project is a web scraper that browses through https://pokemondb.net/ and [the Pokemon Showdown Web API](https://github.com/smogon/pokemon-showdown-client/blob/master/WEB-API.md) to retrieve data on Pokemon attacks, items, abilities, or Pokemon. The web scraper was integrated with a Discord bot which allows users to search for the information on their own in a server using commands.
 
 # Purpose
 This bot is a personal use bot focused mainly on Pokemon. It currently is used to assist when preparing for Pokemon tournaments through looking up information on attacks and Pokemon. Other uses not compeititve related, but still Pokemon related, include helping create Link Codes to help make it easier to connect with other players in online tours.
