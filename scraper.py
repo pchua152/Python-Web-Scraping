@@ -43,10 +43,7 @@ def textCleanUp(text):
         text = text.replace("'",'')
         text = text.replace(":",'')
         text = text.replace(".",'')
-        
-        #Mr. Mime -> mr-mime
-        #Mime Jr. -> mime-jr
-        #Type: Null -> type-null
+
         text = text.lower()
         return text
         
@@ -116,8 +113,6 @@ def genCode():
                 testslice = slice(4)
                 
                 rest = test[4:]
-                """Put a space after 4 digits
-                ex 12345678 becomes 1234 5678"""
                 list = [test[testslice], rest]
                 return " ".join(list)
                 
@@ -125,14 +120,7 @@ def genCode():
         
         return result
         
-        
-def main():
-        print(getMoveData('Jet Punch'))
 
-
-if __name__ == "__main__":
-    main()
-    
     
     
                 
