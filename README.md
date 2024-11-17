@@ -25,7 +25,6 @@ To run the program, python discordbot.py will run the bot, however you need to p
 
 To run the discord bot in your own server, replace the parameters TOKEN and discord_id with your own. Instructions can be found [here for the token](https://www.writebots.com/discord-bot-token/#:~:text=at%20ALL%20COSTS!-,What%20is%20a%20Discord%20Bot%20Token%3F,in%20turn%20controls%20bot%20actions.) and [here for the discord_id](https://poshbot.readthedocs.io/en/latest/guides/backends/setup-discord-backend/#find-your-guild-id-server-id)
 
-The scraper itself is a standalone program which can also be run through python scraper.py to run a demo which looks for one attack, one Pokemon, one item, and one ability as an example
 
 
 
